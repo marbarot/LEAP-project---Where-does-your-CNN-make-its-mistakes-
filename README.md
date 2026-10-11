@@ -13,7 +13,7 @@ The MNIST dataset is utilized, downloaded via OpenML. It contains 70,000 images 
 *Preprocessing* 
 Each of the flat rows consisting of 784 numbers was reshaped back into 28x28x1 image matrices.
 Normalization was performed by scaling pixel values from 0-255 down to 0-1.
-Stratified split was utilized to divide the data into training and testing sets.
+Stratified split was utilized to divide the data into training (56000) and testing (14000) sets.
 
 *Model*
 a. *Model1* A sequential CNN was employed, with a `Conv2D` layer (32 filters), `MaxPooling2D`, `Dropout` (0.3), flattening, and a `Dense` hidden layer.
@@ -22,12 +22,12 @@ b. *Model2* A deeper architecture was created featuring a second `Conv2D` (64 fi
 In both models `sparse_categorical_crossentropy` loss and `EarlyStopping` were utilized (monitoring validation loss with a patience of 3). 
 
 ## 5. Results
-The first CNN model yielded a test accuracy of 98.59%. Analyzing the confusion matrix  revealed that the model misinterpreted true 4s as 9s (in 17 instances) and true 9s as 7s (in 10 instances). These digits' shapes appear to be visually similar. 
+The first CNN model yielded a test accuracy of 98.56%. Analyzing the confusion matrix  revealed that the model misinterpreted true 4s as 9s (in 18 instances) and true 9s as 7s (in 11 instances). These digits' shapes appear to be visually similar. It was trained for 13/15 epochs, with early stopping to prevent overfitting.
 
-The overall test accuracy was elevated to 99.06% when implementing the deeper architecture. Additionally, an important highlight is that the second model successfully reduced the errors, with 4s misclassified as 9s dropping to 9 instances, and 9s misclassified as 7s dropping to 3 instances.
+The overall test accuracy was elevated to 98.95% when implementing the deeper architecture. Additionally, an important highlight is that the second model successfully reduced the errors, with 4s misclassified as 9s dropping to 12 instances, and 9s misclassified as 7s dropping to 8 instances. The training stopped at 9/15 epochs to prevent overfitting.
 
 ## 6. Interpretation
-The second model with deeper architecture successfully reduced the errors by about half, which indicates that it managed to capture more complex spatial relationships. This allowed for the distinction of curved rather than sharp lines. 
+The second model with deeper architecture successfully reduced the misclassifications, which indicates that it managed to capture more complex spatial relationships. This allowed for the distinction of curved rather than sharp lines. 
 However, deploying such a model in real-world settings carries ethical risks. Specifically, it was trained on a dataset that may under-represent the handwriting of several subgroups of people, including foreigners, varying age groups and people of different educational backgrounds. Hence, in high-stakes settings, this could result in discrimination, alongside the administrative burden on specific demographics demanding the constant correction of automated errors.
 
 ## 7. Reflection
