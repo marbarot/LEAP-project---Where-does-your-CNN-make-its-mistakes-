@@ -1,7 +1,7 @@
 # LEAP-project---CNN-classification-
 
 ## 1. Project description
-This portfolio consists of the final project for the LEAP Machine Learning with Python course. The main focus is to employ a convolutional neural network (CNN) that recognizes handwritten digits, identifying misclassifications and applying an architectural change to improve the model's pattern recognition.
+This portfolio consists of the final project for the LEAP Machine Learning and applications course. The main focus is to employ a convolutional neural network (CNN) that recognizes handwritten digits, identifying misclassifications and applying an architectural change to improve the model's pattern recognition.
 
 ## 2. Problem statement
 In this project, the goal is to create a model that accurately predicts handwritten numbers and can be employed to support automation in postal sorting centers and bank transactions. Such high-stakes situations, where a misinterpretation of a single digit carries significant cost, demand for high accuracy, as well as error interpretation. Hence, a main objective is to understand where the errors are made so that they are identified early on during the procedures. 
